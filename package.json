@@ -1,0 +1,49 @@
+{
+  "name": "pool_blockchain_app",
+  "version": "1.0.0",
+  "description": "Test blockchain app",
+  "private": true,
+  "main": "./out/src/main.js",
+  "scripts": {
+    "start:prod": "node ./out/src/main.js",
+    "start:dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./out/main.js\"",
+    "build": "npx tsc",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dr-Khalilov/pool_blockchain_app.git"
+  },
+  "type": "module",
+  "keywords": [
+    "pool",
+    "blockchain",
+    "express",
+    "nodejs"
+  ],
+  "author": "Umar Khalilov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dr-Khalilov/pool_blockchain_app/issues"
+  },
+  "homepage": "https://github.com/Dr-Khalilov/pool_blockchain_app#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "concurrently": "^7.2.2",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.18",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  }
+}
