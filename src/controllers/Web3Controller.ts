@@ -14,7 +14,7 @@ export class Web3Controller {
         next: NextFunction,
     ): Promise<object> {
         try {
-            const version = 'lalalallallala';
+            const version = await this.web3Service.getEth();
             return res.status(200).send({ data: version });
         } catch (err) {
             next(err);

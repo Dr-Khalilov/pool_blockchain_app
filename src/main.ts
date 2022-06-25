@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
-import { App } from './app';
 import { createServer } from 'http';
+import dotenv from 'dotenv';
+import { App } from './App';
 
 dotenv.config();
 
@@ -8,9 +8,9 @@ const {
     env: { PORT },
 } = process;
 
-const runExpressApp = async (port: number | string): Promise<void> => {
+const bootstrap = async (port: number): Promise<void> => {
     try {
-        createServer(new App().app).listen(Number(port) ?? 3001, () =>
+        createServer(new App().app).listen(port ?? 3001, () =>
             console.info(
                 '\x1b[1m',
                 '\x1b[32m',
@@ -23,4 +23,4 @@ const runExpressApp = async (port: number | string): Promise<void> => {
     }
 };
 
-void runExpressApp(PORT);
+void bootstrap(+PORT);

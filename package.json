@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Test blockchain app",
   "private": true,
-  "main": "./out/main.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "start:prod": "node ./out/main.js",
-    "start:dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./out/main.js\"",
+    "start:prod": "node ./dist/main.js",
+    "start:dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/main.js\"",
     "build": "npx tsc",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "prettier:check": "prettier --check ./",

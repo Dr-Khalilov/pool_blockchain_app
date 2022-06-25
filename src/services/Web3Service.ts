@@ -9,7 +9,8 @@ export class Web3Service {
     }
 
     public async getEth(): Promise<string> {
-        const version = this.web3.version;
+        const version = this.web3.givenProvider();
+        console.log(version);
         if (!version) {
             throw new BadRequestException();
         }

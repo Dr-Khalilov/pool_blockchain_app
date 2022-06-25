@@ -4,8 +4,8 @@ import { Routes } from './routes';
 import { errorHandler } from './middlewares/errorHandler';
 
 export class App {
-    public app: Application;
-    public router: Routes = new Routes();
+    public readonly app: Application;
+    private readonly router: Routes = new Routes();
 
     constructor() {
         this.app = express();
