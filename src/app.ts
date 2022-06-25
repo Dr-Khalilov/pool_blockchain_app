@@ -1,11 +1,31 @@
-import express, { Express } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import { Routes } from './routes';
 import { errorHandler } from './middlewares/errorHandler';
 
-const app: Express = express();
-app.use(cors({ origin: 'http://localhost:3000' }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(errorHandler);
+export class App {
+    public app: Application;
+    public router: Routes = new Routes();
 
-export default app;
+    constructor() {
+        this.app = express();
+        this.config();
+        this.router.routes(this.app);
+    }
+
+    private config(): void {
+        this.app.use((req: Request, res: Response, next: NextFunction) => {
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header(
+                'Access-Control-Allow-Methods',
+                'GET,POST,DELETE,OPTIONS,PUT',
+            );
+            res.header('Access-Control-Allow-Headers', '*');
+            next();
+        });
+        this.app.use(cors({ origin: 'http://localhost:3000' }));
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({ extended: true }));
+        this.app.use(errorHandler);
+    }
+}
