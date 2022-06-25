@@ -8,14 +8,12 @@
     "allowSyntheticDefaultImports": true,
     "target": "ESNext",
     "sourceMap": true,
+    "lib": [
+      "ESNext"
+    ],
     "outDir": "./out",
     "baseUrl": "./",
     "rootDir": "./src",
-    "paths": {
-      "@src/*": [
-        "./src/*"
-      ]
-    },
     "incremental": true,
     "skipLibCheck": true,
     "strict": true,
@@ -25,7 +23,8 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "NodeNext",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "tsBuildInfoFile": "./store/tsconfig.tsbuildinfo"
   },
   "include": [
     "src/**/*"

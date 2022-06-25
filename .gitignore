@@ -12,6 +12,7 @@ build/Release
 # Dependency directories
 /node_modules/
 /out/
+/store/
 
 # Optional npm cache directory
 .npm
