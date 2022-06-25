@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Test blockchain app",
   "private": true,
-  "main": "./out/src/main.js",
+  "main": "./out/main.js",
   "scripts": {
     "start:prod": "node ./out/src/main.js",
     "start:dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./out/main.js\"",
@@ -15,7 +15,6 @@
     "type": "git",
     "url": "git+https://github.com/Dr-Khalilov/pool_blockchain_app.git"
   },
-  "type": "module",
   "keywords": [
     "pool",
     "blockchain",
@@ -29,6 +28,7 @@
   },
   "homepage": "https://github.com/Dr-Khalilov/pool_blockchain_app#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1"
   },

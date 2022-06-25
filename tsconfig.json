@@ -10,13 +10,22 @@
     "sourceMap": true,
     "outDir": "./out",
     "baseUrl": "./",
+    "rootDir": "./src",
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ]
+    },
     "incremental": true,
     "skipLibCheck": true,
+    "strict": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*"

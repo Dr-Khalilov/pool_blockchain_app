@@ -1,16 +1,26 @@
-import express, { Express, Request, Response } from 'express';
+import { createServer } from 'http';
 import dotenv from 'dotenv';
+import app from './app';
 
 dotenv.config();
 
-const app: Express = express();
+const {
+    env: { PORT },
+} = process;
 
-const port = process.env.PORT || 4000;
+const runExpressApp = async (port: number | string): Promise<void> => {
+    try {
+        createServer(app).listen(Number(port) ?? 3001, () =>
+            console.info(
+                '\x1b[1m',
+                '\x1b[32m',
+                `Express App started on http://localhost:${port}`,
+            ),
+        );
+    } catch (err) {
+        console.error(err);
+        process.exit(1);
+    }
+};
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Express + TypeScript Server');
-});
-
-app.listen(port, () =>
-    console.info(`Server is running at http://localhost:${port}`),
-);
+void runExpressApp(PORT);
