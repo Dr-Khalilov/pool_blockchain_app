@@ -1,26 +1,18 @@
-import { createServer } from 'http';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import { App } from './App';
-
-dotenv.config();
-
-const {
-    env: { PORT },
-} = process;
+import { EthereumController } from './ethereum/ethereum.controller';
+import { validateEnv } from './utils/validateEnv';
 
 const bootstrap = async (port: number): Promise<void> => {
     try {
-        createServer(new App().app).listen(port ?? 3001, () =>
-            console.info(
-                '\x1b[1m',
-                '\x1b[32m',
-                `Express App started on http://localhost:${port}`,
-            ),
-        );
+        validateEnv();
+        const controllers = [new EthereumController()];
+        const app = new App(controllers, port);
+        app.listen();
     } catch (err) {
         console.error(err);
         process.exit(1);
     }
 };
 
-void bootstrap(+PORT);
+void bootstrap(Number(process.env.PORT));

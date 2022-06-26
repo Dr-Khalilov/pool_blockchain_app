@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
-import { ApplicationException } from '../errors/ApplicationException';
+import { ApplicationException } from '../exceptions/ApplicationException';
 
 export const errorHandler = async (
-    err: Error,
+    err: ApplicationException,
     req: Request,
     res: Response,
     next: NextFunction,

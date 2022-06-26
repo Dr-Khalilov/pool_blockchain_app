@@ -1,5 +1,8 @@
 export class ApplicationException extends Error {
-    constructor(message: string, public status: number) {
+    public readonly message: string;
+    public readonly status: number;
+
+    constructor(message, status) {
         super(message);
         this.name = this.constructor.name;
         this.message = message || 'Something went wrong. Please try again';
