@@ -11,17 +11,31 @@ export class EthereumController implements IController {
     }
 
     public initializeRoutes(): void {
-        this.router.get(this.path, this.getEth);
+        this.router.get(this.path, this.getBalance);
     }
 
-    async getEth(
+    async getBalance(
         req: Request,
         res: Response,
         next: NextFunction,
     ): Promise<object> {
         try {
-            const version = await ethereumService.getEth();
-            return res.status(200).send({ data: version });
+            const balance = await ethereumService.getBalanceInNetwork();
+            return res.status(200).send({ data: balance });
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    async getBalanceInNetwork(
+        req: Request,
+        res: Response,
+        next: NextFunction,
+    ): Promise<object> {
+        try {
+            const allBalanceInNetwork =
+                await ethereumService.getBalanceInNetwork();
+            return res.status(200).send({ data: allBalanceInNetwork });
         } catch (err) {
             next(err);
         }

@@ -1,6 +1,6 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import { errorHandler } from './middlewares/errorHandler';
+import { errorHandler } from './middlewares/error-handler.middleware';
 import { IController } from './interfaces/controller.interface';
 
 export class App {

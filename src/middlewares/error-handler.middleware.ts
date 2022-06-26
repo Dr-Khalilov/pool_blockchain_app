@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { ApplicationException } from '../exceptions/ApplicationException';
+import { ApplicationException } from '../exceptions/application-exception';
 
 export const errorHandler = async (
     err: ApplicationException,
@@ -11,7 +11,7 @@ export const errorHandler = async (
     if (err instanceof ApplicationException) {
         return res
             .status(err.status)
-            .send({ name: err.name, message: err.message });
+            .send({ name: err.name, message: err.message, status: err.status });
     } else {
         return res.status(500).send('Server error');
     }
