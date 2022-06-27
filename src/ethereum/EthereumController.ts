@@ -1,29 +1,42 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import ethereumService from './EthereumService';
-import { IController } from '../interfaces/IController';
+import { EthereumService } from '@src/ethereum/EthereumService';
+import { IController } from '@src/interfaces/IController';
+import { IQueryParams } from '@src/interfaces/IQueryParams';
+import { validationQueryParams } from '@src/middlewares/validationQueryParams';
+import { QueryParamDto } from '@src/ethereum/QueryParamDto';
 
 export class EthereumController implements IController {
-    public readonly path = '/eth-coin';
+    public readonly path = '/eth-coins';
     public readonly router = Router();
+    private readonly ethereumService = new EthereumService();
 
     constructor() {
-        this.initializeRoutes();
+        void this.initializeRoutes();
     }
 
-    public initializeRoutes(): void {
-        this.router.get(this.path, this.getBalance);
+    private async initializeRoutes(): Promise<void> {
+        this.router.get(
+            this.path,
+            await validationQueryParams(QueryParamDto),
+            this.getBalance,
+        );
     }
 
-    async getBalance(
-        req: Request,
+    private getBalance = async (
+        { query: { address, network } }: Request,
         res: Response,
         next: NextFunction,
-    ): Promise<object> {
+    ): Promise<object> => {
         try {
-            const balance = await ethereumService.getBalance();
+            const balance = await this.ethereumService.getBalanceInNetwork(<
+                IQueryParams
+            >{
+                address,
+                network,
+            });
             return res.status(200).send({ data: balance });
         } catch (err) {
             next(err);
         }
-    }
+    };
 }

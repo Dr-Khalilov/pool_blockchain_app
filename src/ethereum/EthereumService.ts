@@ -1,17 +1,19 @@
 import Web3 from 'web3';
-import { BadRequestException } from '../exceptions/BadRequestException';
+import { BadRequestException } from '@src/exceptions/BadRequestException';
+import { EthereumNetworks } from '@src/enums/EthereumNetworksEnum';
+import { IQueryParams } from '@src/interfaces/IQueryParams';
 
-class EthereumService {
+export class EthereumService {
     private readonly web3: Web3;
     private readonly rpcUrl: string;
 
     constructor() {
-        this.rpcUrl = process.env.INFURA_URL_RPC;
+        this.rpcUrl = EthereumNetworks.ETHEREUM;
         this.web3 = new Web3(this.rpcUrl);
     }
 
-    public async getBalance(): Promise<object> {
-        const address = '0xe2211d98f0f89a9c5b61e39fc80fde9056d8e2c0';
+    public async getBalanceInNetwork(query: IQueryParams): Promise<object> {
+        const { address, network } = query;
         const weiBalance = await this.web3.utils.toBN(
             await this.web3.eth.getBalance(address),
         );
@@ -22,8 +24,6 @@ class EthereumService {
         if (!convertedToEthereumBalance) {
             throw new BadRequestException();
         }
-        return { balance: `${convertedToEthereumBalance} ETH` };
+        return { amount: convertedToEthereumBalance, unitName: 'ETH' };
     }
 }
-
-export default new EthereumService();

@@ -1,13 +1,13 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import { errorHandler } from './middlewares/errorHandler';
-import { IController } from './interfaces/IController';
+import { errorHandler } from '@src/middlewares/errorHandler';
+import { IController } from '@src/interfaces/IController';
 
 export class App {
     public readonly app: Application;
     private readonly port: number;
 
-    constructor(controllers, port) {
+    constructor(controllers: IController[], port: number) {
         this.app = express();
         this.port = port;
         this.initializeMiddlewares();

@@ -1,7 +1,7 @@
 import 'dotenv/config';
-import { App } from './App';
-import { EthereumController } from './ethereum/EthereumController';
-import { validateEnv } from './utils/validateEnv';
+import { validateEnv } from '@src/utils/validateEnv';
+import { EthereumController } from '@src/ethereum/EthereumController';
+import { App } from '@src/App';
 
 const bootstrap = async (port: number): Promise<void> => {
     try {
