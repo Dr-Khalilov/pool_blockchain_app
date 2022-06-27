@@ -11,13 +11,13 @@ export class EthereumController implements IController {
     private readonly ethereumService = new EthereumService();
 
     constructor() {
-        void this.initializeRoutes();
+        this.initializeRoutes();
     }
 
-    private async initializeRoutes(): Promise<void> {
+    private initializeRoutes(): void {
         this.router.get(
             this.path,
-            await validationQueryParams(QueryParamDto),
+            validationQueryParams(QueryParamDto),
             this.getBalance,
         );
     }

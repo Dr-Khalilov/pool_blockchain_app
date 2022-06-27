@@ -3,14 +3,8 @@ import { validate, ValidationError } from 'class-validator';
 import { plainToInstance } from 'class-transformer';
 import { BadRequestException } from '@src/exceptions/BadRequestException';
 
-export const validationQueryParams = async <T>(
-    type,
-): Promise<RequestHandler> => {
-    return async (
-        { query }: Request,
-        res: Response,
-        next: NextFunction,
-    ): Promise<void> => {
+export const validationQueryParams = <T>(type): RequestHandler => {
+    return ({ query }: Request, res: Response, next: NextFunction): void => {
         validate(plainToInstance(type, query)).then(
             (errors: ValidationError[]) => {
                 if (errors.length > 0) {

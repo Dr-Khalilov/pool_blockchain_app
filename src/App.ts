@@ -1,7 +1,9 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
 import { errorHandler } from '@src/middlewares/errorHandler';
 import { IController } from '@src/interfaces/IController';
+import { docs } from '@src/docs';
 
 export class App {
     public readonly app: Application;
@@ -39,6 +41,7 @@ export class App {
         this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
+        this.app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(docs));
     }
 
     private initializeErrorHandling(): void {
