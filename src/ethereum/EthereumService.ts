@@ -14,9 +14,7 @@ export class EthereumService {
 
     public async getBalanceInNetwork(query: IQueryParams): Promise<object> {
         const { address, network } = query;
-        const weiBalance = await this.web3.utils.toBN(
-            await this.web3.eth.getBalance(address),
-        );
+        const weiBalance = await this.web3.eth.getBalance(address);
         const convertedToEthereumBalance = this.web3.utils.fromWei(
             weiBalance,
             'ether',

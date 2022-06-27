@@ -1,18 +1,25 @@
+import { EthereumNetworksId } from '@src/enums/EthereumNetworksEnum';
+
 export const components = {
     components: {
         schemas: {
             Balance: {
                 type: 'object',
                 properties: {
-                    amount: {
-                        type: 'string',
-                        description: 'Amount ethers',
-                        example: '0.19485010971289717',
-                    },
-                    unitName: {
-                        type: 'string',
-                        description: 'Unit name',
-                        example: 'ETH',
+                    data: {
+                        type: 'object',
+                        properties: {
+                            amount: {
+                                type: 'string',
+                                description: 'Amount ethers',
+                                example: '0.19485010971289717',
+                            },
+                            unitName: {
+                                type: 'string',
+                                description: 'Unit name',
+                                example: 'ETH',
+                            },
+                        },
                     },
                 },
             },
@@ -24,7 +31,7 @@ export const components = {
             network: {
                 type: 'string',
                 description: 'An available networks',
-                example: 'ETH',
+                enum: EthereumNetworksId,
             },
             Error: {
                 type: 'object',

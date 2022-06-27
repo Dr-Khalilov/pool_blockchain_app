@@ -9,7 +9,7 @@ export class App {
     public readonly app: Application;
     private readonly port: number;
 
-    constructor(controllers: IController[], port: number) {
+    constructor(private controllers: IController[], port: number) {
         this.app = express();
         this.port = port;
         this.initializeMiddlewares();
