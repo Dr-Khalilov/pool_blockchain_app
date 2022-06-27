@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import ethereumService from './ethereum.service';
-import { IController } from '../interfaces/controller.interface';
+import ethereumService from './EthereumService';
+import { IController } from '../interfaces/IController';
 
 export class EthereumController implements IController {
     public readonly path = '/eth-coin';
