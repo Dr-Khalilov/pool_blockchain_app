@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Test blockchain app",
   "private": true,
-  "main": "./dist/main.js",
+  "main": "./src/main.ts",
   "scripts": {
-    "start:prod": "node ./dist/main.js",
-    "start:dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/main.js\"",
-    "debug": "concurrently \"npx tsc --watch\" \"nodemon --inspect ./dist/main.js\"",
+    "start:prod": "ts-node -r tsconfig-paths/register ./src/main.ts",
+    "start:dev": "nodemon -q ./src/main.ts",
+    "debug": "nodemon --inspect ./src/main.ts",
     "build": "npx tsc",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "prettier:check": "prettier --check ./",
@@ -51,6 +51,7 @@
     "nodemon": "^2.0.18",
     "prettier": "^2.7.1",
     "ts-node": "^10.8.1",
+    "tsconfig-paths": "^4.0.0",
     "typescript": "^4.7.4"
   }
 }

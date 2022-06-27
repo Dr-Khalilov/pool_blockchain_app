@@ -20,22 +20,8 @@ export class EthereumController implements IController {
         next: NextFunction,
     ): Promise<object> {
         try {
-            const balance = await ethereumService.getBalanceInNetwork();
+            const balance = await ethereumService.getBalance();
             return res.status(200).send({ data: balance });
-        } catch (err) {
-            next(err);
-        }
-    }
-
-    async getBalanceInNetwork(
-        req: Request,
-        res: Response,
-        next: NextFunction,
-    ): Promise<object> {
-        try {
-            const allBalanceInNetwork =
-                await ethereumService.getBalanceInNetwork();
-            return res.status(200).send({ data: allBalanceInNetwork });
         } catch (err) {
             next(err);
         }

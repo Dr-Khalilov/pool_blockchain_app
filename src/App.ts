@@ -12,6 +12,7 @@ export class App {
         this.port = port;
         this.initializeMiddlewares();
         this.initializeControllers(controllers);
+        this.initializeErrorHandling();
     }
 
     public listen(): void {
@@ -20,6 +21,7 @@ export class App {
                 '\x1b[1m',
                 '\x1b[32m',
                 `Express App started on http://localhost:${this.port}`,
+                '\x1b[0m',
             ),
         );
     }
@@ -37,6 +39,9 @@ export class App {
         this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
+    }
+
+    private initializeErrorHandling(): void {
         this.app.use(errorHandler);
     }
 
