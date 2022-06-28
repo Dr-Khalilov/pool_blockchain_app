@@ -2,6 +2,8 @@
 
 ## Installing the dependencies
 
+### Node.js 14 - 16 version
+
 ```bash
 $ npm install
 ```
