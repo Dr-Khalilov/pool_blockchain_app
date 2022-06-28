@@ -9,7 +9,6 @@ export class EthereumService {
 
     public async getBalanceInNetwork(query: IQueryParams): Promise<object> {
         const { address, network } = query;
-
         const provider = new EthereumProvider(
             this.web3Service,
             this.getNetworkProvider(network),
