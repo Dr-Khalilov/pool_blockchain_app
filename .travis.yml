@@ -3,4 +3,4 @@ node_js:
     - lts/*
 script:
     - npm run lint
-    - prettier:fix
+    - npm run prettier:fix
