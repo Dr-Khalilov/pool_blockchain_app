@@ -1,0 +1,11 @@
+  language:node_js
+  node_js:
+    - lts/*
+  script:
+    - npm run lint
+    - prettier:fix
+
+  # safelist
+  branches:
+    only:
+      - main

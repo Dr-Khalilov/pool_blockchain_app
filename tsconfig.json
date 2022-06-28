@@ -1,4 +1,12 @@
 {
+  "ts-node": {
+    "files": true,
+    "transpileOnly": true,
+    "esm" : true,
+    "require": [
+      "tsconfig-paths/register"
+    ]
+  },
   "compilerOptions": {
     "module": "NodeNext",
     "declaration": true,
@@ -8,21 +16,32 @@
     "allowSyntheticDefaultImports": true,
     "target": "ESNext",
     "sourceMap": true,
-    "outDir": "./out",
+    "lib": [
+      "ESNext"
+    ],
+    "outDir": "./dist",
     "baseUrl": "./",
+    "rootDir": "./src",
+    "paths": {
+      "@src/*": ["./src/*"]
+    },
     "incremental": true,
     "skipLibCheck": true,
+    "strict": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "tsBuildInfoFile": "./store/tsconfig.tsbuildinfo"
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "out"
+    "dist"
   ]
 }

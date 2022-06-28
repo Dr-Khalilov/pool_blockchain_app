@@ -1,16 +1,18 @@
-import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
+import 'dotenv/config';
+import { validateEnv } from '@src/utils/validateEnv';
+import { EthereumController } from '@src/ethereum/EthereumController';
+import { App } from '@src/App';
 
-dotenv.config();
+const bootstrap = async (port: number): Promise<void> => {
+    try {
+        validateEnv();
+        const controllers = [new EthereumController()];
+        const app = new App(controllers, port);
+        app.listen();
+    } catch (err) {
+        console.error(err);
+        process.exit(1);
+    }
+};
 
-const app: Express = express();
-
-const port = process.env.PORT || 4000;
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('Express + TypeScript Server');
-});
-
-app.listen(port, () =>
-    console.info(`Server is running at http://localhost:${port}`),
-);
+void bootstrap(Number(process.env.PORT));
