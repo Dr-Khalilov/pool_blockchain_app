@@ -9,7 +9,7 @@ export const basicInfo = {
             email: 'ERMASTER100@gmail.com',
             url: 'https://cv-umar-khalilov-100.herokuapp.com',
         },
-        host: 'localhost:3000',
+        host: 'pool-blockchain-app.herokuapp.com/',
         basePath: '/',
         schemes: ['http', 'https'],
     },
