@@ -5,7 +5,7 @@
     "private": true,
     "main": "./src/main.ts",
     "scripts": {
-        "start:prod": "node ./dist/main.js",
+        "start": "node ./dist/main.js",
         "start:dev": "nodemon -q ./src/main.ts",
         "debug": "nodemon --inspect ./src/main.ts",
         "postinstall": "npx tsc",
