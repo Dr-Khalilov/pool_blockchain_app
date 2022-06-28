@@ -1,6 +1,6 @@
 import Web3 from 'web3';
-import { EthereumNetworks } from '@src/enums/EthereumNetworksEnum';
-import { BadRequestException } from '@src/exceptions/BadRequestException';
+import { EthereumNetworks } from '../enums/EthereumNetworksEnum';
+import { BadRequestException } from '../exceptions/BadRequestException';
 
 export class EthereumProvider {
     constructor(

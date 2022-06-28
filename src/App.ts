@@ -1,9 +1,9 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
-import { errorHandler } from '@src/middlewares/errorHandler';
-import { IController } from '@src/interfaces/IController';
-import { docs } from '@src/docs';
+import { docs } from './docs';
+import { IController } from './interfaces/IController';
+import { errorHandler } from './middlewares/errorHandler';
 
 export class App {
     public readonly app: Application;

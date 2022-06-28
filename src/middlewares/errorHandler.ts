@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { ApplicationException } from '@src/exceptions/ApplicationException';
+import { ApplicationException } from '../exceptions/ApplicationException';
 
 export const errorHandler = async (
     err: Error,
