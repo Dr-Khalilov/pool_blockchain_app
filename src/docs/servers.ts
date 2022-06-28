@@ -11,7 +11,7 @@ export const servers = {
             description: 'Local server',
         },
         {
-            url: `https://cv-umar-khalilov-100.herokuapp.com/api`,
+            url: 'https://pool-blockchain-app.herokuapp.com/api/',
             description: 'Prod server',
         },
     ],
