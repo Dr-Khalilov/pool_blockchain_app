@@ -1,47 +1,38 @@
 {
-  "ts-node": {
-    "files": true,
-    "transpileOnly": true,
-    "esm" : true,
-    "require": [
-      "tsconfig-paths/register"
-    ]
-  },
-  "compilerOptions": {
-    "module": "NodeNext",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ESNext",
-    "sourceMap": true,
-    "lib": [
-      "ESNext"
-    ],
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "rootDir": "./src",
-    "paths": {
-      "@src/*": ["./src/*"]
+    "ts-node": {
+        "files": true,
+        "transpileOnly": true,
+        "esm": true,
+        "require": ["tsconfig-paths/register"]
     },
-    "incremental": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "NodeNext",
-    "esModuleInterop": true,
-    "tsBuildInfoFile": "./store/tsconfig.tsbuildinfo"
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "compilerOptions": {
+        "module": "NodeNext",
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "ESNext",
+        "sourceMap": true,
+        "lib": ["ESNext"],
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "rootDir": "./src",
+        "paths": {
+            "@src/*": ["./src/*"]
+        },
+        "incremental": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "strictNullChecks": false,
+        "noImplicitAny": false,
+        "strictBindCallApply": false,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "NodeNext",
+        "esModuleInterop": true,
+        "tsBuildInfoFile": "./store/tsconfig.tsbuildinfo"
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
 }
