@@ -11,6 +11,6 @@ export const basicInfo = {
         },
         basePath: '/',
         host: 'pool-blockchain-app.herokuapp.com/',
-        schemes: ['https'],
+        schemes: ['http', 'https'],
     },
 };
