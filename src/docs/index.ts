@@ -1,8 +1,8 @@
-import { basicInfo } from '@src/docs/basicInfo';
-import { servers } from '@src/docs/servers';
-import { components } from '@src/docs/components';
-import { tags } from '@src/docs/tags';
-import { balances } from '@src/docs/balances';
+import { basicInfo } from './basicInfo';
+import { servers } from './servers';
+import { tags } from './tags';
+import { components } from './components';
+import { balances } from './balances';
 
 export const docs = {
     ...basicInfo,

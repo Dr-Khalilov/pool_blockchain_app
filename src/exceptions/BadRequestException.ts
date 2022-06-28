@@ -1,4 +1,4 @@
-import { ApplicationException } from '@src/exceptions/ApplicationException';
+import { ApplicationException } from './ApplicationException';
 
 export class BadRequestException extends ApplicationException {
     constructor(message = 'Bad request') {

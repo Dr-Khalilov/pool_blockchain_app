@@ -1,4 +1,4 @@
-import { EthereumNetworksIds } from '@src/enums/EthereumNetworkIdsEnum';
+import { EthereumNetworksIds } from '../enums/EthereumNetworkIdsEnum';
 
 export interface IQueryParams {
     readonly network: EthereumNetworksIds;

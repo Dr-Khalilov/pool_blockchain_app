@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { EthereumService } from '@src/ethereum/EthereumService';
-import { IController } from '@src/interfaces/IController';
-import { IQueryParams } from '@src/interfaces/IQueryParams';
-import { QueryParamDto } from '@src/ethereum/QueryParamDto';
-import { validationQueryParams } from '@src/middlewares/validationQueryParams';
+import { IController } from '../interfaces/IController';
+import { EthereumService } from './EthereumService';
+import { validationQueryParams } from '../middlewares/validationQueryParams';
+import { QueryParamDto } from './QueryParamDto';
+import { IQueryParams } from '../interfaces/IQueryParams';
 
 export class EthereumController implements IController {
     public readonly path = '/eth-coins';

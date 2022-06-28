@@ -1,8 +1,8 @@
 import Web3 from 'web3';
-import { IQueryParams } from '@src/interfaces/IQueryParams';
-import { EthereumProvider } from '@src/ethereum/EthereumProvider';
-import { EthereumNetworks } from '@src/enums/EthereumNetworksEnum';
-import { EthereumNetworksIds } from '@src/enums/EthereumNetworkIdsEnum';
+import { IQueryParams } from '../interfaces/IQueryParams';
+import { EthereumProvider } from './EthereumProvider';
+import { EthereumNetworksIds } from '../enums/EthereumNetworkIdsEnum';
+import { EthereumNetworks } from '../enums/EthereumNetworksEnum';
 
 export class EthereumService {
     private readonly web3Service: Web3;

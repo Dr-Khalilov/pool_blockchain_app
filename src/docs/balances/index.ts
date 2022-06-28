@@ -1,4 +1,4 @@
-import { getBalance } from '@src/docs/balances/getBalance';
+import { getBalance } from './getBalance';
 
 export const balances = {
     paths: {
