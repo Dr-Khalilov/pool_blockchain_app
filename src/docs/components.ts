@@ -1,4 +1,4 @@
-import { EthereumNetworksId } from '@src/enums/EthereumNetworksEnum';
+import { EthereumNetworksIds } from '@src/enums/EthereumNetworkIdsEnum';
 
 export const components = {
     components: {
@@ -31,7 +31,7 @@ export const components = {
             network: {
                 type: 'string',
                 description: 'An available networks',
-                enum: EthereumNetworksId,
+                enum: EthereumNetworksIds,
             },
             Error: {
                 type: 'object',

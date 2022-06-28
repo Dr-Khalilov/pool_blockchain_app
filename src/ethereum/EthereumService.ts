@@ -1,27 +1,37 @@
 import Web3 from 'web3';
-import { BadRequestException } from '@src/exceptions/BadRequestException';
-import { EthereumNetworks } from '@src/enums/EthereumNetworksEnum';
 import { IQueryParams } from '@src/interfaces/IQueryParams';
+import { EthereumProvider } from '@src/ethereum/EthereumProvider';
+import { EthereumNetworks } from '@src/enums/EthereumNetworksEnum';
+import { EthereumNetworksIds } from '@src/enums/EthereumNetworkIdsEnum';
 
 export class EthereumService {
-    private readonly web3: Web3;
-    private readonly rpcUrl: string;
-
-    constructor() {
-        this.rpcUrl = EthereumNetworks.ETHEREUM;
-        this.web3 = new Web3(this.rpcUrl);
-    }
+    private readonly web3Service: Web3;
 
     public async getBalanceInNetwork(query: IQueryParams): Promise<object> {
         const { address, network } = query;
-        const weiBalance = await this.web3.eth.getBalance(address);
-        const convertedToEthereumBalance = this.web3.utils.fromWei(
-            weiBalance,
-            'ether',
+
+        const provider = new EthereumProvider(
+            this.web3Service,
+            this.getNetworkProvider(network),
         );
-        if (!convertedToEthereumBalance) {
-            throw new BadRequestException();
+        return {
+            amount: await provider.getBalance(address),
+            unitName: network === EthereumNetworksIds.GNOSIS ? 'xDAI' : 'ETH',
+        };
+    }
+
+    private getNetworkProvider(
+        networkId: EthereumNetworksIds,
+    ): EthereumNetworks {
+        switch (networkId) {
+            case EthereumNetworksIds.ETH:
+                return EthereumNetworks.ETHEREUM;
+            case EthereumNetworksIds.GNOSIS:
+                return EthereumNetworks.GNOSISXDAI;
+            case EthereumNetworksIds.ARBITRUM:
+                return EthereumNetworks.ARBITRUM;
+            case EthereumNetworksIds.OPTIMISM:
+                return EthereumNetworks.OPTIMISM;
         }
-        return { amount: convertedToEthereumBalance, unitName: 'ETH' };
     }
 }

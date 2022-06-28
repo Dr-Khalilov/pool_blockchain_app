@@ -1,8 +1,7 @@
-import { cleanEnv, port, str } from 'envalid';
+import { cleanEnv, port } from 'envalid';
 
 export const validateEnv = (): void => {
     cleanEnv(process.env, {
         PORT: port<number>(),
-        INFURA_URL_RPC: str<string>(),
     });
 };

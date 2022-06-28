@@ -4,10 +4,3 @@ export enum EthereumNetworks {
     OPTIMISM = 'https://rpc.ankr.com/optimism',
     GNOSISXDAI = 'https://rpc.ankr.com/gnosis',
 }
-
-export enum EthereumNetworksId {
-    ETH = 'ETH',
-    GNOSIS = 'GNOSIS',
-    OPTIMISM = 'OPTIMISM',
-    ARBITRUM = 'ARBITRUM',
-}
