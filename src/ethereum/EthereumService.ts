@@ -3,6 +3,7 @@ import { IQueryParams } from '../interfaces/IQueryParams';
 import { EthereumProvider } from './EthereumProvider';
 import { EthereumNetworksIds } from '../enums/EthereumNetworkIdsEnum';
 import { EthereumNetworks } from '../enums/EthereumNetworksEnum';
+import { BadRequestException } from '../exceptions/BadRequestException';
 
 export class EthereumService {
     private readonly web3Service: Web3;
@@ -31,6 +32,8 @@ export class EthereumService {
                 return EthereumNetworks.ARBITRUM;
             case EthereumNetworksIds.OPTIMISM:
                 return EthereumNetworks.OPTIMISM;
+            default:
+                new BadRequestException();
         }
     }
 }
