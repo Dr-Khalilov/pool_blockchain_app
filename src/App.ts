@@ -6,7 +6,7 @@ import { IController } from './interfaces/IController';
 import { errorHandler } from './middlewares/errorHandler';
 
 export class App {
-    public readonly app: Application;
+    private readonly app: Application;
     private readonly port: number;
 
     constructor(private controllers: IController[], port: number) {

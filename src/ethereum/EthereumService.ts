@@ -31,6 +31,8 @@ export class EthereumService {
                 return EthereumNetworks.ARBITRUM;
             case EthereumNetworksIds.OPTIMISM:
                 return EthereumNetworks.OPTIMISM;
+            default:
+                return undefined;
         }
     }
 }
