@@ -1,5 +1,5 @@
 {
-    "name": "pool-blockchain-app",
+    "name": "eth_coins_app",
     "version": "1.0.0",
     "description": "Test blockchain app",
     "private": true,
@@ -16,7 +16,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Dr-Khalilov/pool_blockchain_app.git"
+        "url": "git+https://github.com/umar-khalilov/eth_coins_app.git"
     },
     "keywords": [
         "pool",
@@ -27,9 +27,9 @@
     "author": "Umar Khalilov",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Dr-Khalilov/pool_blockchain_app/issues"
+        "url": "https://github.com/umar-khalilov/eth_coins_app/issues"
     },
-    "homepage": "https://github.com/Dr-Khalilov/pool_blockchain_app#readme",
+    "homepage": "https://github.com/umar-khalilov/eth_coins_app#readme",
     "dependencies": {
         "class-transformer": "^0.5.1",
         "class-validator": "^0.13.2",
