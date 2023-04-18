@@ -1,6 +1,9 @@
+import { HttpStatusCodes } from 'src/common/utils/httpStatusCodes';
+import { ListTags } from '../listTags';
+
 export const getBalance = {
     get: {
-        tags: ['Ethereum balance operations'],
+        tags: [ListTags.BALANCE],
         summary: 'Get balance by address and network',
         description: 'Get balance for ethereum wallet',
         operationId: 'getBalance',
@@ -25,8 +28,8 @@ export const getBalance = {
             },
         ],
         responses: {
-            200: {
-                description: 'OK',
+            [HttpStatusCodes.OK]: {
+                description: 'A balance data',
                 content: {
                     'application/json': {
                         schema: {
@@ -35,12 +38,22 @@ export const getBalance = {
                     },
                 },
             },
-            400: {
+            [HttpStatusCodes.BAD_REQUEST]: {
                 description: 'Bad Request Exception',
                 content: {
                     'application/json': {
                         schema: {
-                            $ref: '#/components/schemas/Error',
+                            $ref: '#/components/schemas/BadRequestException',
+                        },
+                    },
+                },
+            },
+            [HttpStatusCodes.NOT_FOUND]: {
+                description: 'Path exception',
+                content: {
+                    'application/json': {
+                        schema: {
+                            $ref: '#/components/schemas/PathNotFoundException',
                         },
                     },
                 },

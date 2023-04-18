@@ -1,18 +1,15 @@
-import 'dotenv/config';
 import { App } from './App';
 import { EthereumController } from './ethereum/EthereumController';
-import { validateEnv } from './utils/validateEnv';
+import { validateEnv } from './app/validateEnv';
+import { configuration } from './config/configuration';
+import { ErrorHandler } from './common/middlewares/ErrorHandler';
 
-const bootstrap = async (port: number): Promise<void> => {
-    try {
-        validateEnv();
-        const controllers = [new EthereumController()];
-        const app = new App(controllers, port);
-        app.listen();
-    } catch (err) {
-        console.error(err);
-        process.exit(1);
-    }
+const main = async (): Promise<void> => {
+    validateEnv(configuration);
+    const controllers = [new EthereumController()];
+    const app = new App(controllers);
+    await app.listen();
 };
 
-void bootstrap(Number(process.env.PORT));
+void main();
+ErrorHandler.initializeUnhandledException();

@@ -1,4 +1,5 @@
-import { EthereumNetworksIds } from '../enums/EthereumNetworkIdsEnum';
+import { HttpStatusCodes } from 'src/common/utils/httpStatusCodes';
+import { EthereumIds } from '../../common/enums/EthereumIds';
 
 export const components = {
     components: {
@@ -14,9 +15,9 @@ export const components = {
                                 description: 'Amount ethers',
                                 example: '0.19485010971289717',
                             },
-                            unitName: {
+                            currency: {
                                 type: 'string',
-                                description: 'Unit name',
+                                description: 'Currency name',
                                 example: 'ETH',
                             },
                         },
@@ -31,20 +32,48 @@ export const components = {
             network: {
                 type: 'string',
                 description: 'An available networks',
-                enum: EthereumNetworksIds,
+                enum: [
+                    EthereumIds.ETH,
+                    EthereumIds.ARBITRUM,
+                    EthereumIds.OPTIMISM,
+                    EthereumIds.GNOSIS,
+                ],
+                default: EthereumIds.ETH,
+                example: EthereumIds.ETH,
+                required: true,
             },
-            Error: {
+            BadRequestException: {
                 type: 'object',
                 properties: {
+                    status: {
+                        type: 'integer',
+                        description: 'Error status code',
+                        example: HttpStatusCodes.BAD_REQUEST,
+                    },
                     message: {
                         type: 'string',
                         description: 'Error message',
                         example: 'Bad Request',
                     },
+                    errors: {
+                        type: 'array',
+                        description: 'Errors',
+                        example: [''],
+                    },
+                },
+            },
+            PathNotFoundException: {
+                type: 'object',
+                properties: {
+                    message: {
+                        type: 'string',
+                        description: 'Error message',
+                        example: 'The requested path: *** not found',
+                    },
                     status: {
-                        type: 'number',
+                        type: 'integer',
                         description: 'Error status code',
-                        example: 'Invalid parameters',
+                        example: HttpStatusCodes.NOT_FOUND,
                     },
                 },
             },

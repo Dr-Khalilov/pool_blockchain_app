@@ -1,6 +1,6 @@
-import { getBalance } from './getBalance';
+import { getBalance } from './balances/getBalance';
 
-export const balances = {
+export const paths = {
     paths: {
         '/eth-coins': {
             ...getBalance,

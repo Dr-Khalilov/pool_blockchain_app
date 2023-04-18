@@ -1,6 +1,5 @@
 import Web3 from 'web3';
-import { EthereumNetworks } from '../enums/EthereumNetworksEnum';
-import { BadRequestException } from '../exceptions/BadRequestException';
+import { EthereumNetworks } from '../common/enums/EthereumNetworks';
 
 export class EthereumProvider {
     constructor(
@@ -13,13 +12,6 @@ export class EthereumProvider {
 
     public async getBalance(address: string): Promise<string> {
         const weiBalance = await this.web3Service.eth.getBalance(address);
-        const convertedToEthereumBalance = this.web3Service.utils.fromWei(
-            weiBalance,
-            'ether',
-        );
-        if (!convertedToEthereumBalance) {
-            throw new BadRequestException();
-        }
-        return convertedToEthereumBalance;
+        return this.web3Service.utils.fromWei(weiBalance, 'ether');
     }
 }

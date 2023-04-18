@@ -1,4 +1,4 @@
-export enum EthereumNetworksIds {
+export enum EthereumIds {
     ETH = 'ETH',
     GNOSIS = 'GNOSIS',
     OPTIMISM = 'OPTIMISM',

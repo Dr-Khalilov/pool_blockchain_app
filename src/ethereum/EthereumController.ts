@@ -1,16 +1,20 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { IController } from '../interfaces/IController';
 import { EthereumService } from './EthereumService';
-import { validationQueryParams } from '../middlewares/validationQueryParams';
 import { QueryParamDto } from './QueryParamDto';
-import { IQueryParams } from '../interfaces/IQueryParams';
+import { IController } from 'src/common/interfaces/IController';
+import { validationQueryParams } from 'src/common/middlewares/validationQueryParams';
+import { IQueryParams } from 'src/common/interfaces/IQueryParams';
+import { IBalance } from './IBalance';
 
 export class EthereumController implements IController {
-    public readonly path = '/eth-coins';
-    public readonly router = Router();
-    private readonly ethereumService = new EthereumService();
+    private readonly ethereumService: EthereumService;
+    public readonly router: Router;
+    public readonly path: string;
 
     constructor() {
+        this.ethereumService = new EthereumService();
+        this.router = Router({ caseSensitive: true, mergeParams: true });
+        this.path = '/eth-coins';
         this.initializeRoutes();
     }
 
@@ -26,14 +30,15 @@ export class EthereumController implements IController {
         { query: { address, network } }: Request,
         res: Response,
         next: NextFunction,
-    ): Promise<object> => {
+    ): Promise<Response<{ data: IBalance }>> => {
         try {
-            const balance = await this.ethereumService.getBalanceInNetwork(<
+            const balance = await this.ethereumService.getBalanceByNetwork(<
                 IQueryParams
             >{
                 address,
                 network,
             });
+
             return res.status(200).send({ data: balance });
         } catch (err) {
             next(err);
