@@ -1,17 +1,17 @@
 import { join } from 'node:path';
-import { config } from 'dotenv';
+import { config as configDotenv } from 'dotenv';
 
-const result = config({
+const envFile = configDotenv({
     path: join(__dirname, '..', '..', '.env'),
 });
 
-if (result.error) {
-    throw result.error;
+if (envFile.error) {
+    throw envFile.error;
 }
 
 const {
     parsed: { NODE_ENV, SERVER_PORT, SERVER_URL },
-} = result;
+} = envFile;
 
 export const configuration = Object.freeze({
     NODE_ENV: NODE_ENV,

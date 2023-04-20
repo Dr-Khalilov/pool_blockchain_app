@@ -1,10 +1,10 @@
 import Web3 from 'web3';
 import { EthereumProvider } from './EthereumProvider';
 import { EthereumNetworks } from '../common/enums/EthereumNetworks';
-import { IQueryParams } from 'src/common/interfaces/IQueryParams';
+import { IQueryParams } from '../common/interfaces/IQueryParams';
 import { IBalance } from './IBalance';
-import { EthereumIds } from 'src/common/enums/EthereumIds';
-import { networkCorrespondenceMap } from 'src/common/utils/networkCorrespondenceMap';
+import { EthereumIds } from '../common/enums/EthereumIds';
+import { networkCorrespondenceMap } from '../common/utils/networkCorrespondenceMap';
 
 export class EthereumService {
     private readonly web3Service: Web3;

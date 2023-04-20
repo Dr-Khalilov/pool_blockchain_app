@@ -1,4 +1,4 @@
-import { HttpStatusCodes } from 'src/common/utils/httpStatusCodes';
+import { HttpStatusCodes } from '../../../common/utils/httpStatusCodes';
 import { ListTags } from '../listTags';
 
 export const getBalance = {

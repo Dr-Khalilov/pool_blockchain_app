@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { EthereumService } from './EthereumService';
 import { QueryParamDto } from './QueryParamDto';
-import { IController } from 'src/common/interfaces/IController';
-import { validationQueryParams } from 'src/common/middlewares/validationQueryParams';
-import { IQueryParams } from 'src/common/interfaces/IQueryParams';
+import { IController } from '../common/interfaces/IController';
+import { validationQueryParams } from '../common/middlewares/validationQueryParams';
+import { IQueryParams } from '../common/interfaces/IQueryParams';
 import { IBalance } from './IBalance';
 
 export class EthereumController implements IController {

@@ -2,7 +2,7 @@
 
 ## Installing the dependencies
 
-### Node.js 14 - 16 version
+### Node.js 14-19 version
 
 ```bash
 $ npm install
@@ -17,19 +17,12 @@ $ npm run start:dev
 ## Running the app in production mode
 
 ```bash
-$ npm run postinstall & npm run start
+$ npm run build
+$ npm run start:prod
 ```
 
-### Documentation in local environment
+### Documentation
 
 ```http request
- http://localhost:3000/api/docs
+ http://localhost:4000/api/docs
 ```
-
-### Documentation in cloud environment
-
-```http request
-https://pool-blockchain-app.herokuapp.com/api/docs
-```
-
-# Select a Prod server in the list of servers if you open an application in the heroku cloud and execute requests

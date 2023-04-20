@@ -11,7 +11,7 @@ export class App {
     private readonly app: Application;
     private readonly port: number;
 
-    constructor(private controllers: IController[]) {
+    constructor(controllers: IController[]) {
         this.app = express();
         this.port = configuration.SERVER_PORT;
         this.initializeMiddlewares();

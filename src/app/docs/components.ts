@@ -1,4 +1,4 @@
-import { HttpStatusCodes } from 'src/common/utils/httpStatusCodes';
+import { HttpStatusCodes } from '../../common/utils/httpStatusCodes';
 import { EthereumIds } from '../../common/enums/EthereumIds';
 
 export const components = {
