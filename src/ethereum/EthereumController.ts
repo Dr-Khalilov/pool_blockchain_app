@@ -5,6 +5,7 @@ import { IController } from '../common/interfaces/IController';
 import { validationQueryParams } from '../common/middlewares/validationQueryParams';
 import { IQueryParams } from '../common/interfaces/IQueryParams';
 import { IBalance } from './IBalance';
+import { HttpStatusCodes } from '../common/utils/httpStatusCodes';
 
 export class EthereumController implements IController {
     private readonly ethereumService: EthereumService;
@@ -39,7 +40,7 @@ export class EthereumController implements IController {
                 network,
             });
 
-            return res.status(200).send({ data: balance });
+            return res.status(HttpStatusCodes.OK).send({ data: balance });
         } catch (err) {
             next(err);
         }
