@@ -9,8 +9,8 @@ import { HttpStatusCodes } from '../common/utils/httpStatusCodes';
 
 export class EthereumController implements IController {
     private readonly ethereumService: EthereumService;
-    public readonly router: Router;
-    public readonly path: string;
+    readonly router: Router;
+    readonly path: string;
 
     constructor() {
         this.ethereumService = new EthereumService();
